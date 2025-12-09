@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership Inventory Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 Car Dealership Inventory</h1>
+            <p class="subtitle">Manage your vehicle inventory with ease</p>
+        </header>
+
+        <div class="controls">
+            <button id="addCarBtn" class="btn btn-primary">+ Add New Car</button>
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="Search by name, VIN, or color..." class="search-input">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">All Categories</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Truck">Truck</option>
+                    <option value="Coupe">Coupe</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="inventoryGrid" class="inventory-grid"></div>
+    </div>
+
+    <!-- Add/Edit Car Modal -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add New Car</h2>
+            <form id="carForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="carName">Car Name *</label>
+                        <input type="text" id="carName" required placeholder="e.g., Toyota Camry LE">
+                    </div>
+                    <div class="form-group">
+                        <label for="carCategory">Category *</label>
+                        <select id="carCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Coupe">Coupe</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carYear">Year</label>
+                        <input type="number" id="carYear" placeholder="e.g., 2023" min="1900" max="2030">
+                    </div>
+                    <div class="form-group">
+                        <label for="carMileage">Mileage</label>
+                        <input type="number" id="carMileage" placeholder="e.g., 15000" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="carColor">Color</label>
+                        <input type="text" id="carColor" placeholder="e.g., Silver">
+                    </div>
+                    <div class="form-group">
+                        <label for="carVin">VIN</label>
+                        <input type="text" id="carVin" placeholder="e.g., 1HGBH41JXMN109186">
+                    </div>
+                    <div class="form-group">
+                        <label for="carQuantity">Quantity *</label>
+                        <input type="number" id="carQuantity" required min="0" placeholder="e.g., 1">
+                    </div>
+                    <div class="form-group">
+                        <label for="carPrice">Price ($) *</label>
+                        <input type="number" id="carPrice" required step="0.01" min="0" placeholder="e.g., 24999.99">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="carDescription">Description</label>
+                    <textarea id="carDescription" rows="3" placeholder="Brief description of the vehicle..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Car</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
