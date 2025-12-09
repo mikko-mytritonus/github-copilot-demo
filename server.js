@@ -97,7 +97,7 @@ app.post('/api/products', (req, res) => {
   try {
     const { name, category, quantity, price, description, year, mileage, vin, color } = req.body;
     
-    if (!name || !category || quantity === undefined || !price) {
+    if (!name || !category || quantity == null || price == null) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
     
